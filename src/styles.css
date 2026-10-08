@@ -1,0 +1,183 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Warm Academic design system — Lingua.
+ * Fraunces (display) + Inter (body), cream paper, teal brand, amber accent.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: var(--font-family-display);
+  --font-body: var(--font-family-body);
+  --font-sans: var(--font-family-body);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-inksoft: var(--inksoft);
+  --color-brand: var(--brand);
+  --color-branddeep: var(--branddeep);
+  --color-amber: var(--amber);
+  --color-rosy: var(--rosy);
+  --color-sage: var(--sage);
+  --color-sand: var(--sand);
+
+  --color-chart-1: var(--brand);
+  --color-chart-2: var(--amber);
+  --color-chart-3: var(--rosy);
+  --color-chart-4: var(--branddeep);
+  --color-chart-5: var(--inksoft);
+
+  --color-sidebar: var(--card);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-accent: var(--secondary);
+  --color-sidebar-accent-foreground: var(--foreground);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --font-family-display: "Fraunces", Georgia, serif;
+  --font-family-body: "Inter", system-ui, sans-serif;
+
+  --cream: oklch(0.974 0.012 84);
+  --ink: oklch(0.303 0.022 236);
+  --inksoft: oklch(0.513 0.024 232);
+  --brand: oklch(0.46 0.062 178);
+  --branddeep: oklch(0.351 0.05 178);
+  --amber: oklch(0.767 0.134 71);
+  --rosy: oklch(0.571 0.143 29);
+  --sage: oklch(0.939 0.014 155);
+  --sand: oklch(0.938 0.024 85);
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--brand);
+  --primary-foreground: var(--cream);
+  --secondary: var(--sand);
+  --secondary-foreground: var(--ink);
+  --muted: var(--sage);
+  --muted-foreground: var(--inksoft);
+  --accent: var(--amber);
+  --accent-foreground: var(--ink);
+  --destructive: var(--rosy);
+  --destructive-foreground: var(--cream);
+  --border: oklch(0.303 0.022 236 / 0.12);
+  --input: oklch(0.303 0.022 236 / 0.16);
+  --ring: var(--brand);
+}
+
+.dark {
+  --background: oklch(0.243 0.02 236);
+  --foreground: var(--cream);
+  --card: oklch(0.293 0.02 236);
+  --card-foreground: var(--cream);
+  --popover: oklch(0.293 0.02 236);
+  --popover-foreground: var(--cream);
+  --primary: oklch(0.62 0.07 178);
+  --primary-foreground: oklch(0.2 0.02 236);
+  --secondary: oklch(0.34 0.02 236);
+  --secondary-foreground: var(--cream);
+  --muted: oklch(0.34 0.02 236);
+  --muted-foreground: oklch(0.76 0.015 232);
+  --accent: var(--amber);
+  --accent-foreground: oklch(0.2 0.02 236);
+  --destructive: var(--rosy);
+  --destructive-foreground: var(--cream);
+  --border: oklch(1 0 0 / 0.14);
+  --input: oklch(1 0 0 / 0.18);
+  --ring: oklch(0.62 0.07 178);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-family-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-family-display);
+    font-weight: 600;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+@utility animate-pop {
+  animation: pop-in 0.28s ease-out;
+}
+
+@utility animate-nudge {
+  animation: nudge 0.3s ease-out;
+}
